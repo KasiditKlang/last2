@@ -162,6 +162,9 @@ app.get('/api/history', authenticateToken, async (req, res) => {
     }
 });
 
+app.use(express.static(path.join(__dirname, '../public')));
+
+
 // กำหนด Route สำหรับหน้าเว็บ (กรณีเข้าถึงจาก /)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/loginResponsive.html'));
