@@ -13,7 +13,9 @@ const app = express();
 // Increase payload size limit to handle large image uploads
 app.use(express.json({ limit: '10mb' }));  // Adjust the limit as needed
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
-app.use(cors());
+app.use(cors({
+    origin: '*', // Allow all origins, or specify your domain for security
+  }));
 app.use(express.static(path.join(__dirname, '../public')));
 
 // User and Meal models
